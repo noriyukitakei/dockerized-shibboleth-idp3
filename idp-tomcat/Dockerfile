@@ -7,9 +7,6 @@ RUN apt-get update && \
 # shibbolethの設定ファイル生成用Dockerコンテナで生成されたファイルをコンテナにコピーする
 ADD customized-shibboleth-idp /opt/shibboleth-idp
 
-# Tomcatの設定ファイルに当てる各種パッチをコンテナにコピーする。
-COPY patch/* /tmp/
-
 # Shibbolethのビルド用ファイルをコンテナにコピーする。
 COPY bin/build.sh /usr/local/bin/
 
