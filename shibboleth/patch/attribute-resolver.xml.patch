@@ -1,0 +1,43 @@
+--- conf/attribute-resolver.xml.orig	2020-03-18 00:44:26.000000000 +0900
++++ conf/attribute-resolver.xml	2020-03-18 00:48:04.000000000 +0900
+@@ -23,7 +23,6 @@
+     <!-- ========================================== -->
+ 
+     <!-- Schema: Core schema attributes-->
+-<!--
+ 
+     <AttributeDefinition xsi:type="Simple" id="uid">
+         <InputDataConnector ref="myLDAP" attributeNames="uid"/>
+@@ -138,7 +137,6 @@
+         <AttributeEncoder xsi:type="SAML1String" name="urn:mace:dir:attribute-def:initials" encodeType="false" />
+         <AttributeEncoder xsi:type="SAML2String" name="urn:oid:2.5.4.43" friendlyName="initials" encodeType="false" />
+     </AttributeDefinition>
+--->
+ 
+     <!-- Schema: inetOrgPerson attributes-->
+ <!--
+@@ -276,15 +274,13 @@
+ -->
+ 
+     <!-- Example LDAP Connector -->
+-<!--
+     <DataConnector id="myLDAP" xsi:type="LDAPDirectory"
+         ldapURL="%{idp.attribute.resolver.LDAP.ldapURL}"
+         baseDN="%{idp.attribute.resolver.LDAP.baseDN}" 
+         principal="%{idp.attribute.resolver.LDAP.bindDN}"
+         principalCredential="%{idp.attribute.resolver.LDAP.bindDNCredential}"
+-        useStartTLS="%{idp.attribute.resolver.LDAP.useStartTLS:true}"
++        useStartTLS="%{idp.attribute.resolver.LDAP.useStartTLS:}"
+         connectTimeout="%{idp.attribute.resolver.LDAP.connectTimeout}"
+-		trustFile="%{idp.attribute.resolver.LDAP.trustCertificates}"
+         responseTimeout="%{idp.attribute.resolver.LDAP.responseTimeout}">
+         <FilterTemplate>
+             <![CDATA[
+@@ -300,7 +296,6 @@
+             expirationTime="%{idp.pool.LDAP.idleTime:PT10M}"
+             failFastInitialize="%{idp.pool.LDAP.failFastInitialize:false}" />
+     </DataConnector>
+--->
+ 
+     <!-- DataConector for pairwise-id (example depends on saml-nameid.properties). -->
+ 
